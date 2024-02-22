@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>mne_bids.write &#8212; MNE-BIDS 0.15.0.dev33+gc16d3b23 documentation</title>
+    <title>mne_bids.write &#8212; MNE-BIDS 0.15.0.dev34+geabe5134 documentation</title>
   
   
   
@@ -40,7 +40,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../../_static/documentation_options.js?v=77542079"></script>
+    <script src="../../_static/documentation_options.js?v=3aa00d31"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -144,7 +144,7 @@
   
   
   
-    <p class="title logo__title">MNE-BIDS 0.15.0.dev33+gc16d3b23 documentation</p>
+    <p class="title logo__title">MNE-BIDS 0.15.0.dev34+geabe5134 documentation</p>
   
 </a></div>
     
@@ -1893,7 +1893,6 @@ document.write(`
     <span class="n">montage</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">acpc_aligned</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="n">overwrite</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">events_data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">verbose</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Save raw data to a BIDS-compliant folder structure.</span>
@@ -2076,9 +2075,6 @@ document.write(`
 <span class="sd">        and ``participants.tsv`` by a user will be retained.</span>
 <span class="sd">        If ``False``, no existing data will be overwritten or</span>
 <span class="sd">        replaced.</span>
-<span class="sd">    events_data</span>
-<span class="sd">        .. deprecated:: 0.11</span>
-<span class="sd">           Use ``events`` instead.</span>
 
 <span class="sd">    %(verbose)s</span>
 
@@ -2139,21 +2135,6 @@ document.write(`
 <span class="sd">    mne.events_from_annotations</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">events_data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">events</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Only one of events and events_data can be passed.&quot;</span><span class="p">)</span>
-
-    <span class="k">if</span> <span class="n">events_data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">warn</span><span class="p">(</span>
-            <span class="n">message</span><span class="o">=</span><span class="s2">&quot;The events_data parameter has been deprecated in favor &quot;</span>
-            <span class="s2">&quot;the new events parameter, to ensure better consistency  &quot;</span>
-            <span class="s2">&quot;with MNE-Python. The events_data parameter will be &quot;</span>
-            <span class="s2">&quot;removed in MNE-BIDS 0.14. Please use the events &quot;</span>
-            <span class="s2">&quot;parameter instead.&quot;</span><span class="p">,</span>
-            <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">,</span>
-        <span class="p">)</span>
-        <span class="n">events</span> <span class="o">=</span> <span class="n">events_data</span>
-        <span class="k">del</span> <span class="n">events_data</span>
-
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="n">BaseRaw</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
             <span class="s2">&quot;raw_file must be an instance of BaseRaw, &quot;</span> <span class="s2">&quot;got </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="nb">type</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
@@ -3731,7 +3712,7 @@ document.write(`
 
   <p class="copyright">
     
-      © Copyright 2017-2024, MNE Developers. Last updated on 2024-02-20.
+      © Copyright 2017-2024, MNE Developers. Last updated on 2024-02-22.
       <br/>
     
   </p>
