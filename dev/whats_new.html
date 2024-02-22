@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>What’s new? &#8212; MNE-BIDS 0.15.0.dev34+geabe5134 documentation</title>
+    <title>What’s new? &#8212; MNE-BIDS 0.15.0.dev35+ge41b5173 documentation</title>
   
   
   
@@ -41,7 +41,7 @@
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="_static/documentation_options.js?v=3aa00d31"></script>
+    <script src="_static/documentation_options.js?v=cf31b2a3"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
@@ -147,7 +147,7 @@
   
   
   
-    <p class="title logo__title">MNE-BIDS 0.15.0.dev34+geabe5134 documentation</p>
+    <p class="title logo__title">MNE-BIDS 0.15.0.dev35+ge41b5173 documentation</p>
   
 </a></div>
     
@@ -540,6 +540,8 @@ document.write(`
 </ul>
 <p>The following authors had contributed before. Thank you for sticking around! 🤘</p>
 <ul class="simple">
+<li><p><a class="reference external" href="https://github.com/alexrockhill">Alex Rockhill</a></p></li>
+<li><p><a class="reference external" href="https://github.com/larsoner">Eric Larson</a></p></li>
 <li><p><a class="reference external" href="https://github.com/laemtl">Laetitia Fesselier</a></p></li>
 <li><p><a class="reference external" href="https://github.com/hoechenberger">Richard Höchenberger</a></p></li>
 <li><p><a class="reference external" href="https://stefanappelhoff.com/">Stefan Appelhoff</a></p></li>
@@ -558,6 +560,10 @@ document.write(`
 <ul class="simple">
 <li><p>The experimental support for running MNE-BIDS examples from your browser using Binder has
 been removed, by <a class="reference external" href="https://stefanappelhoff.com/">Stefan Appelhoff</a> (<a class="reference external" href="https://github.com/mne-tools/mne-bids/issues/1202">#1202</a>)</p></li>
+<li><p>MNE-BIDS will no longer zero-pad (“zfill”) entity indices passed to <a class="reference internal" href="generated/mne_bids.BIDSPath.html#mne_bids.BIDSPath" title="mne_bids.BIDSPath"><code class="xref py py-class docutils literal notranslate"><span class="pre">BIDSPath</span></code></a>.
+For example, If <code class="docutils literal notranslate"><span class="pre">run=1</span></code> is passed to MNE-BIDS, it will no longer be silently auto-converted to <code class="docutils literal notranslate"><span class="pre">run-01</span></code>, by <a class="reference external" href="https://github.com/alexrockhill">Alex Rockhill</a> (<a class="reference external" href="https://github.com/mne-tools/mne-bids/issues/1215">#1215</a>)</p></li>
+<li><p>MNE-BIDS will no longer warn about missing leading punctuation marks for extensions passed <a class="reference internal" href="generated/mne_bids.BIDSPath.html#mne_bids.BIDSPath" title="mne_bids.BIDSPath"><code class="xref py py-class docutils literal notranslate"><span class="pre">BIDSPath</span></code></a>.
+For example, MNE-BIDS will now silently auto-convert <code class="docutils literal notranslate"><span class="pre">edf</span></code> to <code class="docutils literal notranslate"><span class="pre">`.edf</span></code>, by <a class="reference external" href="https://github.com/alexrockhill">Alex Rockhill</a> (<a class="reference external" href="https://github.com/mne-tools/mne-bids/issues/1215">#1215</a>)</p></li>
 </ul>
 </section>
 <section id="requirements">
@@ -574,7 +580,7 @@ been removed, by <a class="reference external" href="https://stefanappelhoff.com
 <h4>🪲 Bug fixes<a class="headerlink" href="#bug-fixes" title="Link to this heading">#</a></h4>
 <ul class="simple">
 <li><p>The datatype in the dataframe returned by <a class="reference internal" href="generated/mne_bids.stats.count_events.html#mne_bids.stats.count_events" title="mne_bids.stats.count_events"><code class="xref py py-func docutils literal notranslate"><span class="pre">mne_bids.stats.count_events()</span></code></a> is now
-<code class="docutils literal notranslate"><span class="pre">pandas.Int64Dtype</span></code> instead of <code class="docutils literal notranslate"><span class="pre">float64</span></code>.</p></li>
+<code class="docutils literal notranslate"><span class="pre">pandas.Int64Dtype</span></code> instead of <code class="docutils literal notranslate"><span class="pre">float64</span></code>, by <a class="reference external" href="https://github.com/larsoner">Eric Larson</a> (<a class="reference external" href="https://github.com/mne-tools/mne-bids/issues/1227">#1227</a>)</p></li>
 </ul>
 </section>
 <section id="code-health">

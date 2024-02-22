@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>mne_bids.path &#8212; MNE-BIDS 0.15.0.dev34+geabe5134 documentation</title>
+    <title>mne_bids.path &#8212; MNE-BIDS 0.15.0.dev35+ge41b5173 documentation</title>
   
   
   
@@ -40,7 +40,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../../_static/documentation_options.js?v=3aa00d31"></script>
+    <script src="../../_static/documentation_options.js?v=cf31b2a3"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -144,7 +144,7 @@
   
   
   
-    <p class="title logo__title">MNE-BIDS 0.15.0.dev34+geabe5134 documentation</p>
+    <p class="title logo__title">MNE-BIDS 0.15.0.dev35+ge41b5173 documentation</p>
   
 </a></div>
     
@@ -1499,24 +1499,12 @@ document.write(`
                 <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">val</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
                     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> is not an index (Got </span><span class="si">{</span><span class="n">val</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
                 <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
-                    <span class="n">kwargs</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">val</span><span class="si">:</span><span class="s2">02</span><span class="si">}</span><span class="s2">&quot;</span>
+                    <span class="n">kwargs</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">val</span><span class="si">}</span><span class="s2">&quot;</span>
 
         <span class="c1"># ensure extension starts with a &#39;.&#39;</span>
         <span class="n">extension</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;extension&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">extension</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">extension</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">):</span>
-            <span class="n">warn</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s1">&#39;extension should start with a period &quot;.&quot;, but got: &#39;</span>
-                <span class="sa">f</span><span class="s1">&#39;&quot;</span><span class="si">{</span><span class="n">extension</span><span class="si">}</span><span class="s1">&quot;. Prepending &quot;.&quot; to form: &quot;.</span><span class="si">{</span><span class="n">extension</span><span class="si">}</span><span class="s1">&quot;. &#39;</span>
-                <span class="sa">f</span><span class="s2">&quot;This will raise an exception starting with MNE-BIDS 0.12.&quot;</span><span class="p">,</span>
-                <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">,</span>
-            <span class="p">)</span>
             <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;extension&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;.</span><span class="si">{</span><span class="n">extension</span><span class="si">}</span><span class="s2">&quot;</span>
-            <span class="c1"># Uncomment in 0.12, and remove above code:</span>
-            <span class="c1">#</span>
-            <span class="c1"># raise ValueError(</span>
-            <span class="c1">#     f&#39;Extension must start wie a period &quot;.&quot;, but got: &#39;</span>
-            <span class="c1">#     f&#39;{extension}&#39;</span>
-            <span class="c1"># )</span>
         <span class="k">del</span> <span class="n">extension</span>
 
         <span class="c1"># error check entities</span>
