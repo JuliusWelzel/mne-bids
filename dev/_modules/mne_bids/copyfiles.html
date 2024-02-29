@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>mne_bids.copyfiles &#8212; MNE-BIDS 0.15.0.dev35+ge41b5173 documentation</title>
+    <title>mne_bids.copyfiles &#8212; MNE-BIDS 0.15.0.dev36+g28e8cdb3 documentation</title>
   
   
   
@@ -40,7 +40,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../../_static/documentation_options.js?v=cf31b2a3"></script>
+    <script src="../../_static/documentation_options.js?v=5dd60dc4"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -144,7 +144,7 @@
   
   
   
-    <p class="title logo__title">MNE-BIDS 0.15.0.dev35+ge41b5173 documentation</p>
+    <p class="title logo__title">MNE-BIDS 0.15.0.dev36+g28e8cdb3 documentation</p>
   
 </a></div>
     
@@ -684,6 +684,13 @@ document.write(`
         <span class="s2">&quot;.newds&quot;</span><span class="p">,</span>
         <span class="s2">&quot;.res4&quot;</span><span class="p">,</span>
     <span class="p">)</span>
+
+    <span class="c1"># Consider CTF files that are split having consecutively numbered extensions</span>
+    <span class="n">extra_ctf_file_types</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;.</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">_meg4&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">)</span>
+    <span class="p">)</span>  <span class="c1"># cap at 20 is arbitrary</span>
+    <span class="n">file_types</span> <span class="o">+=</span> <span class="n">extra_ctf_file_types</span>
+
     <span class="c1"># Rename files in dest with the name of the dest directory</span>
     <span class="n">fnames</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">dest</span><span class="p">)</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">file_types</span><span class="p">)]</span>
     <span class="n">bids_folder_name</span> <span class="o">=</span> <span class="n">op</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">op</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">dest</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
@@ -1213,7 +1220,7 @@ document.write(`
 
   <p class="copyright">
     
-      © Copyright 2017-2024, MNE Developers. Last updated on 2024-02-22.
+      © Copyright 2017-2024, MNE Developers. Last updated on 2024-02-29.
       <br/>
     
   </p>
