@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>mne_bids.read &#8212; MNE-BIDS 0.15.0.dev43+g17d20c13 documentation</title>
+    <title>mne_bids.read &#8212; MNE-BIDS 0.15.0.dev44+gc75ac58d documentation</title>
   
   
   
@@ -40,7 +40,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../../_static/documentation_options.js?v=59b4dbbd"></script>
+    <script src="../../_static/documentation_options.js?v=2cc4e53e"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -144,7 +144,7 @@
   
   
   
-    <p class="title logo__title">MNE-BIDS 0.15.0.dev43+g17d20c13 documentation</p>
+    <p class="title logo__title">MNE-BIDS 0.15.0.dev44+gc75ac58d documentation</p>
   
 </a></div>
     
@@ -847,12 +847,32 @@ document.write(`
     <span class="c1"># extract the acquisition time from scans file</span>
     <span class="n">acq_time</span> <span class="o">=</span> <span class="n">acq_times</span><span class="p">[</span><span class="n">row_ind</span><span class="p">]</span>
     <span class="k">if</span> <span class="n">acq_time</span> <span class="o">!=</span> <span class="s2">&quot;n/a&quot;</span><span class="p">:</span>
-        <span class="c1"># microseconds in the acquisition time is optional</span>
+        <span class="c1"># BIDS allows the time to be stored in UTC with a zero time-zone offset, as</span>
+        <span class="c1"># indicated by a trailing &quot;Z&quot; in the datetime string. If the &quot;Z&quot; is missing, the</span>
+        <span class="c1"># time is represented as &quot;local&quot; time. We have no way to know what the local</span>
+        <span class="c1"># time zone is at the *acquisition* site; so we simply assume the same time zone</span>
+        <span class="c1"># as the user&#39;s current system (this is what the spec demands anyway).</span>
+        <span class="n">acq_time_is_utc</span> <span class="o">=</span> <span class="n">acq_time</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;Z&quot;</span><span class="p">)</span>
+
+        <span class="c1"># microseconds part in the acquisition time is optional; add it if missing</span>
         <span class="k">if</span> <span class="s2">&quot;.&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">acq_time</span><span class="p">:</span>
-            <span class="c1"># acquisition time ends with &#39;.%fZ&#39; microseconds string</span>
-            <span class="n">acq_time</span> <span class="o">+=</span> <span class="s2">&quot;.0Z&quot;</span>
-        <span class="n">acq_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">acq_time</span><span class="p">,</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">T%H:%M:%S.</span><span class="si">%f</span><span class="s2">Z&quot;</span><span class="p">)</span>
-        <span class="n">acq_time</span> <span class="o">=</span> <span class="n">acq_time</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">tzinfo</span><span class="o">=</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">acq_time_is_utc</span><span class="p">:</span>
+                <span class="n">acq_time</span> <span class="o">=</span> <span class="n">acq_time</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;Z&quot;</span><span class="p">,</span> <span class="s2">&quot;.0Z&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">acq_time</span> <span class="o">+=</span> <span class="s2">&quot;.0&quot;</span>
+
+        <span class="n">date_format</span> <span class="o">=</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">T%H:%M:%S.</span><span class="si">%f</span><span class="s2">&quot;</span>
+        <span class="k">if</span> <span class="n">acq_time_is_utc</span><span class="p">:</span>
+            <span class="n">date_format</span> <span class="o">+=</span> <span class="s2">&quot;Z&quot;</span>
+
+        <span class="n">acq_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">acq_time</span><span class="p">,</span> <span class="n">date_format</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">acq_time_is_utc</span><span class="p">:</span>
+            <span class="c1"># Enforce setting timezone to UTC without additonal conversion</span>
+            <span class="n">acq_time</span> <span class="o">=</span> <span class="n">acq_time</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">tzinfo</span><span class="o">=</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Convert time offset to UTC</span>
+            <span class="n">acq_time</span> <span class="o">=</span> <span class="n">acq_time</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span>
 
         <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
             <span class="sa">f</span><span class="s2">&quot;Loaded </span><span class="si">{</span><span class="n">scans_fname</span><span class="si">}</span><span class="s2"> scans file to set &quot;</span> <span class="sa">f</span><span class="s2">&quot;acq_time as </span><span class="si">{</span><span class="n">acq_time</span><span class="si">}</span><span class="s2">.&quot;</span>
@@ -1721,7 +1741,7 @@ document.write(`
 
   <p class="copyright">
     
-      © Copyright 2017-2024, MNE Developers. Last updated on 2024-03-18.
+      © Copyright 2017-2024, MNE Developers. Last updated on 2024-03-25.
       <br/>
     
   </p>
