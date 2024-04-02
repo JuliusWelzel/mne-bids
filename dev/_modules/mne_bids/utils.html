@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>mne_bids.utils &#8212; MNE-BIDS 0.15.0.dev46+g509012d8 documentation</title>
+    <title>mne_bids.utils &#8212; MNE-BIDS 0.15.0.dev47+g598ff7f2 documentation</title>
   
   
   
@@ -40,7 +40,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../../_static/documentation_options.js?v=4a94eff3"></script>
+    <script src="../../_static/documentation_options.js?v=0e186bb1"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -144,7 +144,7 @@
   
   
   
-    <p class="title logo__title">MNE-BIDS 0.15.0.dev46+g509012d8 documentation</p>
+    <p class="title logo__title">MNE-BIDS 0.15.0.dev47+g598ff7f2 documentation</p>
   
 </a></div>
     
@@ -723,7 +723,7 @@ document.write(`
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">exp_date</span> <span class="o">&lt;</span> <span class="n">bday</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The experimentation date must be after the birth &quot;</span> <span class="s2">&quot;date&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The experimentation date must be after the birth date&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">exp_date</span><span class="o">.</span><span class="n">month</span> <span class="o">&gt;</span> <span class="n">bday</span><span class="o">.</span><span class="n">month</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">exp_date</span><span class="o">.</span><span class="n">year</span> <span class="o">-</span> <span class="n">bday</span><span class="o">.</span><span class="n">year</span>
     <span class="k">elif</span> <span class="n">exp_date</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="n">bday</span><span class="o">.</span><span class="n">month</span><span class="p">:</span>
@@ -961,7 +961,7 @@ document.write(`
             <span class="n">daysback_max_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">daysback_max</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">daysback_min_list</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">daysback_max_list</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-            <span class="s2">&quot;All measurement dates are None, &quot;</span> <span class="s2">&quot;pass any `daysback` value to anonymize.&quot;</span>
+            <span class="s2">&quot;All measurement dates are None, pass any `daysback` value to anonymize.&quot;</span>
         <span class="p">)</span>
     <span class="n">daysback_min</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">daysback_min_list</span><span class="p">)</span>
     <span class="n">daysback_max</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">daysback_max_list</span><span class="p">)</span>

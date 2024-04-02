@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>mne_bids.write &#8212; MNE-BIDS 0.15.0.dev46+g509012d8 documentation</title>
+    <title>mne_bids.write &#8212; MNE-BIDS 0.15.0.dev47+g598ff7f2 documentation</title>
   
   
   
@@ -40,7 +40,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../../_static/documentation_options.js?v=4a94eff3"></script>
+    <script src="../../_static/documentation_options.js?v=0e186bb1"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -144,7 +144,7 @@
   
   
   
-    <p class="title logo__title">MNE-BIDS 0.15.0.dev46+g509012d8 documentation</p>
+    <p class="title logo__title">MNE-BIDS 0.15.0.dev47+g598ff7f2 documentation</p>
   
 </a></div>
     
@@ -654,7 +654,7 @@ document.write(`
         <span class="n">bio</span><span class="o">=</span><span class="s2">&quot;Biological&quot;</span><span class="p">,</span>
         <span class="n">ias</span><span class="o">=</span><span class="s2">&quot;Internal Active Shielding&quot;</span><span class="p">,</span>
         <span class="n">dbs</span><span class="o">=</span><span class="s2">&quot;Deep Brain Stimulation&quot;</span><span class="p">,</span>
-        <span class="n">fnirs_cw_amplitude</span><span class="o">=</span><span class="s2">&quot;Near Infrared Spectroscopy &quot;</span> <span class="s2">&quot;(continuous wave)&quot;</span><span class="p">,</span>
+        <span class="n">fnirs_cw_amplitude</span><span class="o">=</span><span class="s2">&quot;Near Infrared Spectroscopy (continuous wave)&quot;</span><span class="p">,</span>
         <span class="n">resp</span><span class="o">=</span><span class="s2">&quot;Respiration&quot;</span><span class="p">,</span>
         <span class="n">gsr</span><span class="o">=</span><span class="s2">&quot;Galvanic skin response (electrodermal activity, EDA)&quot;</span><span class="p">,</span>
         <span class="n">temperature</span><span class="o">=</span><span class="s2">&quot;Temperature&quot;</span><span class="p">,</span>
@@ -1519,16 +1519,16 @@ document.write(`
             <span class="n">theta</span> <span class="o">=</span> <span class="n">deface</span><span class="p">[</span><span class="s2">&quot;theta&quot;</span><span class="p">]</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="n">_is_numeric</span><span class="p">(</span><span class="n">inset</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;inset must be numeric (float, int). &quot;</span> <span class="s2">&quot;Got </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="nb">type</span><span class="p">(</span><span class="n">inset</span><span class="p">))</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;inset must be numeric (float, int). Got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">inset</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="n">_is_numeric</span><span class="p">(</span><span class="n">theta</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;theta must be numeric (float, int). &quot;</span> <span class="s2">&quot;Got </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="nb">type</span><span class="p">(</span><span class="n">theta</span><span class="p">))</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;theta must be numeric (float, int). Got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">inset</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;inset should be positive, &quot;</span> <span class="s2">&quot;Got </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">inset</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;inset should be positive, Got </span><span class="si">{inset}</span><span class="s2">&quot;</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">theta</span> <span class="o">&lt;</span> <span class="mi">90</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;theta should be between 0 and 90 &quot;</span> <span class="s2">&quot;degrees. Got </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">theta</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;theta should be between 0 and 90 degrees. Got </span><span class="si">{theta}</span><span class="s2">&quot;</span><span class="p">)</span>
 
     <span class="c1"># get image data, make a copy</span>
     <span class="n">image_data</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -2137,9 +2137,7 @@ document.write(`
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="n">BaseRaw</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-            <span class="s2">&quot;raw_file must be an instance of BaseRaw, &quot;</span> <span class="s2">&quot;got </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="nb">type</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
-        <span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;raw_file must be an instance of BaseRaw, got </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="nb">type</span><span class="p">(</span><span class="n">raw</span><span class="p">))</span>
 
     <span class="k">if</span> <span class="n">raw</span><span class="o">.</span><span class="n">preload</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">False</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">allow_preload</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
@@ -2188,7 +2186,7 @@ document.write(`
         <span class="p">)</span>
 
     <span class="k">if</span> <span class="n">events</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">event_id</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;You passed events, but no event_id &quot;</span> <span class="s2">&quot;dictionary.&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;You passed events, but no event_id dictionary.&quot;</span><span class="p">)</span>
 
     <span class="n">_validate_type</span><span class="p">(</span>
         <span class="n">item</span><span class="o">=</span><span class="n">empty_room</span><span class="p">,</span> <span class="n">item_name</span><span class="o">=</span><span class="s2">&quot;empty_room&quot;</span><span class="p">,</span> <span class="n">types</span><span class="o">=</span><span class="p">(</span><span class="n">mne</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">BaseRaw</span><span class="p">,</span> <span class="n">BIDSPath</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
@@ -2227,7 +2225,7 @@ document.write(`
 
         <span class="k">if</span> <span class="n">symlink</span> <span class="ow">and</span> <span class="n">ext</span> <span class="o">!=</span> <span class="s2">&quot;.fif&quot;</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
-                <span class="s2">&quot;Symlinks are currently only supported &quot;</span> <span class="s2">&quot;for FIFF files.&quot;</span>
+                <span class="s2">&quot;Symlinks are currently only supported for FIFF files.&quot;</span>
             <span class="p">)</span>
 
         <span class="n">raw_orig</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="n">ext</span><span class="p">](</span><span class="o">**</span><span class="n">raw</span><span class="o">.</span><span class="n">_init_kwargs</span><span class="p">)</span>
@@ -2415,7 +2413,7 @@ document.write(`
             <span class="n">bids_path</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">extension</span><span class="o">=</span><span class="s2">&quot;.fif&quot;</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">bids_path</span><span class="o">.</span><span class="n">datatype</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;eeg&quot;</span><span class="p">,</span> <span class="s2">&quot;ieeg&quot;</span><span class="p">]:</span>
             <span class="k">if</span> <span class="n">ext</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;.vhdr&quot;</span><span class="p">,</span> <span class="s2">&quot;.edf&quot;</span><span class="p">,</span> <span class="s2">&quot;.bdf&quot;</span><span class="p">,</span> <span class="s2">&quot;.EDF&quot;</span><span class="p">]:</span>
-                <span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Converting data files to BrainVision format &quot;</span> <span class="s2">&quot;for anonymization&quot;</span><span class="p">)</span>
+                <span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Converting data files to BrainVision format for anonymization&quot;</span><span class="p">)</span>
                 <span class="n">convert</span> <span class="o">=</span> <span class="kc">True</span>
                 <span class="n">bids_path</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">extension</span><span class="o">=</span><span class="s2">&quot;.vhdr&quot;</span><span class="p">)</span>
     <span class="c1"># Read in Raw object and extract metadata from Raw object if needed</span>
@@ -2597,7 +2595,7 @@ document.write(`
                 <span class="n">bids_path</span><span class="o">.</span><span class="n">fpath</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">FileExistsError</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s1">&#39;&quot;</span><span class="si">{</span><span class="n">bids_path</span><span class="o">.</span><span class="n">fpath</span><span class="si">}</span><span class="s1">&quot; already exists. &#39;</span> <span class="s2">&quot;Please set overwrite to True.&quot;</span>
+                <span class="sa">f</span><span class="s1">&#39;&quot;</span><span class="si">{</span><span class="n">bids_path</span><span class="o">.</span><span class="n">fpath</span><span class="si">}</span><span class="s1">&quot; already exists. Please set overwrite to True.&#39;</span>
             <span class="p">)</span>
 
     <span class="c1"># File saving branching logic</span>
@@ -3127,7 +3125,7 @@ document.write(`
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;bids_path must have root and subject set.&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">bids_path</span><span class="o">.</span><span class="n">datatype</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;meg&quot;</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-            <span class="s2">&quot;Can only write fine-calibration information for MEG &quot;</span> <span class="s2">&quot;datasets.&quot;</span>
+            <span class="s2">&quot;Can only write fine-calibration information for MEG datasets.&quot;</span>
         <span class="p">)</span>
 
     <span class="n">_validate_type</span><span class="p">(</span>
@@ -3200,7 +3198,7 @@ document.write(`
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;bids_path must have root and subject set.&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">bids_path</span><span class="o">.</span><span class="n">datatype</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;meg&quot;</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-            <span class="s2">&quot;Can only write fine-calibration information for MEG &quot;</span> <span class="s2">&quot;datasets.&quot;</span>
+            <span class="s2">&quot;Can only write fine-calibration information for MEG datasets.&quot;</span>
         <span class="p">)</span>
 
     <span class="n">_validate_type</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">types</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;path-like&quot;</span><span class="p">,),</span> <span class="n">item_name</span><span class="o">=</span><span class="s2">&quot;fname&quot;</span><span class="p">)</span>
