@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>mne_bids.get_entity_vals &#8212; MNE-BIDS 0.15.0.dev48+ge8eb7a7f documentation</title>
+    <title>mne_bids.get_entity_vals &#8212; MNE-BIDS 0.15.0.dev49+g96f8deed documentation</title>
   
   
   
@@ -41,8 +41,8 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../_static/documentation_options.js?v=8d36bba7"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/documentation_options.js?v=90d4fd1f"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=fd10adb8"></script>
@@ -147,7 +147,7 @@
   
   
   
-    <p class="title logo__title">MNE-BIDS 0.15.0.dev48+ge8eb7a7f documentation</p>
+    <p class="title logo__title">MNE-BIDS 0.15.0.dev49+g96f8deed documentation</p>
   
 </a></div>
     
@@ -582,7 +582,7 @@ key.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>root</strong><span class="classifier"><a class="reference external" href="https://mne.tools/dev/documentation/glossary.html#term-path-like" title="(in MNE v1.7)"><span class="xref std std-term">path-like</span></a></span></dt><dd><p>Path to the “root” directory from which to start traversing to gather
+<dt><strong>root</strong><span class="classifier"><a class="reference external" href="https://mne.tools/dev/documentation/glossary.html#term-path-like" title="(in MNE v1.8)"><span class="xref std std-term">path-like</span></a></span></dt><dd><p>Path to the “root” directory from which to start traversing to gather
 BIDS entities from file- and folder names. This will commonly be the
 BIDS root, but it may also be a subdirectory inside of a BIDS dataset,
 e.g., the <code class="docutils literal notranslate"><span class="pre">sub-X</span></code> directory of a hypothetical subject <code class="docutils literal notranslate"><span class="pre">X</span></code>.</p>
@@ -621,7 +621,7 @@ mock-subject are not returned. If <code class="docutils literal notranslate"><sp
 </dd>
 <dt><strong>ignore_descriptions</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a> | <a class="reference external" href="https://numpy.org/devdocs/glossary.html#term-array_like" title="(in NumPy v2.1.dev0)"><span class="xref std std-term">array_like</span></a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a></span></dt><dd><p>Description(s) to ignore. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, include all descriptions.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 0.11.</span></p>
+<p><span class="versionmodified added">Added in version 0.11.</span></p>
 </div>
 </dd>
 <dt><strong>ignore_modalities</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a> | <a class="reference external" href="https://numpy.org/devdocs/glossary.html#term-array_like" title="(in NumPy v2.1.dev0)"><span class="xref std std-term">array_like</span></a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a></span></dt><dd><p>Modalities(s) to ignore. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, include all modalities.</p>
@@ -632,7 +632,7 @@ mock-subject are not returned. If <code class="docutils literal notranslate"><sp
 <dt><strong>ignore_dirs</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a> | <a class="reference external" href="https://numpy.org/devdocs/glossary.html#term-array_like" title="(in NumPy v2.1.dev0)"><span class="xref std std-term">array_like</span></a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a></span></dt><dd><p>Directories nested directly within <code class="docutils literal notranslate"><span class="pre">root</span></code> to ignore. If <code class="docutils literal notranslate"><span class="pre">None</span></code>,
 include all directories in the search.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 0.9.</span></p>
+<p><span class="versionmodified added">Added in version 0.9.</span></p>
 </div>
 </dd>
 <dt><strong>with_key</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, returns the full entity with the key and the value. This
@@ -642,7 +642,7 @@ will for example look like <code class="docutils literal notranslate"><span clas
 </dd>
 <dt><strong>verbose</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a></span></dt><dd><p>Control verbosity of the logging output. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, use the default
 verbosity level. See the <a class="reference external" href="https://docs.python.org/3/tutorial/stdlib2.html#tut-logging" title="(in Python v3.12)"><span class="xref std std-ref">logging documentation</span></a> and
-<a class="reference external" href="https://mne.tools/dev/generated/mne.verbose.html#mne.verbose" title="(in MNE v1.7)"><code class="xref py py-func docutils literal notranslate"><span class="pre">mne.verbose()</span></code></a> for details. Should only be passed as a keyword
+<a class="reference external" href="https://mne.tools/dev/generated/mne.verbose.html#mne.verbose" title="(in MNE v1.8)"><code class="xref py py-func docutils literal notranslate"><span class="pre">mne.verbose()</span></code></a> for details. Should only be passed as a keyword
 argument.</p>
 </dd>
 </dl>
@@ -760,7 +760,7 @@ pointed to by <em class="xref py py-obj">root</em>.</p>
 
   <p class="copyright">
     
-      © Copyright 2017-2024, MNE Developers. Last updated on 2024-04-09.
+      © Copyright 2017-2024, MNE Developers. Last updated on 2024-05-13.
       <br/>
     
   </p>
@@ -769,7 +769,7 @@ pointed to by <em class="xref py py-obj">root</em>.</p>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     <br/>
   </p>
 </div>
